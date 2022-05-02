@@ -18,7 +18,7 @@ public class MorseCodeController {
 	private MorseCodeService morseCodeService;
 	
 	@PostMapping("/morse-code")
-	public ResponseEntity<MorseCodeMessage> addProduct(@Valid @RequestBody MorseCodeMessage newMessage) {
+	public ResponseEntity<MorseCodeMessage> translate(@Valid @RequestBody MorseCodeMessage newMessage) {
 		MorseCodeMessage translatedMessage = morseCodeService.translate(newMessage);		
 		return new ResponseEntity<>(translatedMessage, HttpStatus.OK);
 	}
