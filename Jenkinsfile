@@ -14,7 +14,7 @@ pipeline {
         stage('Sonar') {
             steps {
                 withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeDocker') {
-                    sh 'mvn sonar:sonar'
+                    sh 'mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
                 }
             }
         }        
