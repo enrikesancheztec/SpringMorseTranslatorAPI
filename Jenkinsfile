@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeToken') {
+                withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeTokenNew') {
                     sh 'mvn sonar:sonar'
                 }
             }
