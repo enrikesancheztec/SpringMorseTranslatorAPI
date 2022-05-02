@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                withSonarQubeEnv(credentialsId: '10fe407fe898dfec93eaa394750ee0784711c03b', installationName: 'SonarQube Docker') {
+                withSonarQubeEnv(installationName: 'SonarQube Docker') {
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
             }
