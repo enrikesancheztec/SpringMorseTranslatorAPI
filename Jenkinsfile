@@ -14,7 +14,7 @@ pipeline {
         stage('Sonar') {
             steps {
                 withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeDocker') {
-                    sh 'mvn verify sonar:sonar -Dsonar.qualitygate.wait=true'
+                    sh 'mvn -B -DskipTests verify sonar:sonar -Dsonar.qualitygate.wait=true'
                 }
             }
         }        
