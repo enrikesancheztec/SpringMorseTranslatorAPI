@@ -28,7 +28,7 @@ class MorseCodeServiceTest {
 		MorseCodeMessage output = morseService.translate(input);
 				
 		// Then
-		assertEquals(originalMessage, output.getOriginal());
+		assertEquals(originalMessage.toUpperCase(), output.getOriginal());
 		assertEquals(expectedOutput, output.getTranslation());
 	}
 	
