@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'mvn heroku:deploy -Dheroku.appName=spring-morse-translator-api'
+                sh 'mvn -e heroku:deploy -Dheroku.appName=spring-morse-translator-api DskipTests'
             }
         }  
     }
