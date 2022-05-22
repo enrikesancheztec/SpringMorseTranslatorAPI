@@ -11,13 +11,6 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Sonar') {
-            steps {
-                withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeDocker') {
-                    sh 'mvn -B -DskipTests verify sonar:sonar -Dsonar.qualitygate.wait=true'
-                }
-            }
-        }        
         stage('Test') { 
             steps {
                 sh 'mvn test' 
@@ -28,6 +21,13 @@ pipeline {
                 }
             }
         }
+        stage('Sonar') {
+            steps {
+                withSonarQubeEnv(installationName: 'SonarQube Docker', credentialsId: 'SonarQubeDocker') {
+                    sh 'mvn -B -DskipTests verify sonar:sonar -Dsonar.qualitygate.wait=true'
+                }
+            }
+        }        
         stage('Javadoc') {
             steps {
                 sh 'mvn -B -DskipTests javadoc:javadoc'
