@@ -6,6 +6,12 @@ pipeline {
         }
     }
     stages {
+        stage('Prepare Heroku') {
+            steps {
+                sh 'npm install -g heroku'
+                sh 'heroku --version'
+            }
+        }    
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
