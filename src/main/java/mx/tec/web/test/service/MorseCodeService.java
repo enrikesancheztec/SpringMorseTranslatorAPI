@@ -67,7 +67,7 @@ public class MorseCodeService {
 	        translation = translation.substring(0, translation.length() - 1);
 	    }
 
-	    MorseCodeMessage translatedMessage = new MorseCodeMessage(originalMessage.getOriginal(), translation);		
+	    MorseCodeMessage translatedMessage = new MorseCodeMessage(originalMessage.getOriginal().toUpperCase(), translation);		
 		
 		return translatedMessage;
 	}
