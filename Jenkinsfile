@@ -28,5 +28,10 @@ pipeline {
                 }
             }
         }
+        stage('Javadoc') {
+            steps {
+                sh 'mvn -B -DskipTests javadoc:javadoc'
+            }
+        }        
     }
 }
